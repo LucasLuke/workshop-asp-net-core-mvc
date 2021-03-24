@@ -55,6 +55,10 @@ namespace SalesWebMVC.Services
             catch(DbUpdateConcurrencyException e)
             {
                 throw new DbConcurrencyException(e.Message);
+            
+            }catch(IntegrityException e)
+            {
+                throw new IntegrityException(e.Message);
             }
         }
     }
